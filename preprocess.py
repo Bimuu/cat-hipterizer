@@ -9,7 +9,7 @@ file_list = []
 for dirname in ['CAT_00', 'CAT_01', 'CAT_02', 'CAT_03', 'CAT_04', 'CAT_05']:
     base_path = '/kaggle/input/cat-dataset/%s' % dirname
     file_list.extend(sorted(os.listdir(base_path)))
-random.shuffle(file_list)
+# random.shuffle(file_list)
 
 dataset = {
   'imgs': [],
