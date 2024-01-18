@@ -78,7 +78,7 @@ for f in file_list:
   pred_bb = bbs_model.predict(inputs)[0].reshape((-1, 2))
 
   # compute bounding box of original image
-  ori_bb = ((pred_bb - np.array([left, top])) / ratio).astype(np.int)
+  ori_bb = ((pred_bb - np.array([left, top])) / ratio).astype(int)
 
   # compute lazy bounding box for detecting landmarks
   center = np.mean(ori_bb, axis=0)
@@ -86,7 +86,7 @@ for f in file_list:
   new_bb = np.array([
     center - face_size * 0.6,
     center + face_size * 0.6
-  ]).astype(np.int)
+  ]).astype(int)
   new_bb = np.clip(new_bb, 0, 99999)
 
   # predict landmarks
@@ -98,7 +98,7 @@ for f in file_list:
   pred_lmks = lmks_model.predict(face_inputs)[0].reshape((-1, 2))
 
   # compute landmark of original image
-  new_lmks = ((pred_lmks - np.array([face_left, face_top])) / face_ratio).astype(np.int)
+  new_lmks = ((pred_lmks - np.array([face_left, face_top])) / face_ratio).astype(int)
   ori_lmks = new_lmks + new_bb[0]
 
   # visualize

@@ -44,7 +44,7 @@ for f in file_list:
 
   # resize image and relocate landmarks
   img, ratio, top, left = resize_img(img)
-  landmarks = ((landmarks * ratio) + np.array([left, top])).astype(np.int)
+  landmarks = ((landmarks * ratio) + np.array([left, top])).astype(int)
   bb = np.array([np.min(landmarks, axis=0), np.max(landmarks, axis=0)])
 
   dataset['imgs'].append(img)
