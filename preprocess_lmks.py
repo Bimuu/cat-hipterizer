@@ -4,12 +4,10 @@ import pandas as pd
 import numpy as np
 
 img_size = 224
-file_list = []
-
-for dirname in ['CAT_00', 'CAT_01', 'CAT_02', 'CAT_03', 'CAT_04', 'CAT_05']:
-    base_path = '/kaggle/input/cat-dataset/%s' % dirname
-    file_list.extend(sorted(os.listdir(base_path)))
-# random.shuffle(file_list)
+dirname = 'CAT_00'
+base_path = '/kaggle/input/cat-dataset/%s' % dirname
+file_list = sorted(os.listdir(base_path))
+random.shuffle(file_list)
 
 dataset = {
   'imgs': [],
@@ -34,7 +32,7 @@ def resize_img(im):
 for f in file_list:
   if '.cat' not in f:
     continue
-    
+
   # read landmarks
   pd_frame = pd.read_csv(os.path.join(base_path, f), sep=' ', header=None)
   landmarks = (pd_frame.to_numpy()[0][1:-1]).reshape((-1, 2))
