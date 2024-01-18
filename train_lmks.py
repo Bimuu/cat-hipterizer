@@ -3,7 +3,7 @@ import keras, datetime
 from keras.layers import Input, Dense
 from keras.models import Model
 from keras.callbacks import TensorBoard, ModelCheckpoint, ReduceLROnPlateau
-from tf.keras.applications import mobilenet_v2
+from tensorflow.keras.applications import mobilenet_v2
 import numpy as np
 
 img_size = 224
