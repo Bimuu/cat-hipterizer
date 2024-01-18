@@ -35,7 +35,7 @@ for f in file_list:
 
   # read landmarks
   pd_frame = pd.read_csv(os.path.join(base_path, f), sep=' ', header=None)
-  landmarks = (pd_frame.as_matrix()[0][1:-1]).reshape((-1, 2))
+  landmarks = (pd_frame.to_numpy()[0][1:-1]).reshape((-1, 2))
   bb = np.array([np.min(landmarks, axis=0), np.max(landmarks, axis=0)]).astype(np.int)
   center = np.mean(bb, axis=0)
   face_size = max(np.abs(np.max(landmarks, axis=0) - np.min(landmarks, axis=0)))

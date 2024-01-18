@@ -35,7 +35,7 @@ for f in file_list:
 
   # read landmarks
   pd_frame = pd.read_csv(os.path.join(base_path, f), sep=' ', header=None)
-  landmarks = (pd_frame.as_matrix()[0][1:-1]).reshape((-1, 2))
+  landmarks = (pd_frame.to_numpy()[0][1:-1]).reshape((-1, 2))
 
   # load image
   img_filename, ext = os.path.splitext(f)
