@@ -4,9 +4,11 @@ import pandas as pd
 import numpy as np
 
 img_size = 224
-dirname = 'CAT_00'
-base_path = '/kaggle/input/cat-dataset/%s' % dirname
-file_list = sorted(os.listdir(base_path))
+file_list = []
+
+for dirname in ['CAT_00', 'CAT_01', 'CAT_02', 'CAT_03', 'CAT_04', 'CAT_05', 'CAT_06']:
+    base_path = '/kaggle/input/cat-dataset/%s' % dirname
+    file_list.extend(sorted(os.listdir(base_path)))
 random.shuffle(file_list)
 
 dataset = {
