@@ -16,13 +16,13 @@ elif mode == 'lmks':
 
 start_time = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
 
-data_00 = np.load('dataset/lmks_CAT_00.npy',allow_pickle=True)
-data_01 = np.load('dataset/lmks_CAT_01.npy',allow_pickle=True)
-data_02 = np.load('dataset/lmks_CAT_02.npy',allow_pickle=True)
-data_03 = np.load('dataset/lmks_CAT_03.npy',allow_pickle=True)
-data_04 = np.load('dataset/lmks_CAT_04.npy',allow_pickle=True)
-data_05 = np.load('dataset/lmks_CAT_05.npy',allow_pickle=True)
-data_06 = np.load('dataset/lmks_CAT_06.npy',allow_pickle=True)
+data_00 = np.load('/kaggle/working/dataset/lmks_CAT_00.npy',allow_pickle=True)
+data_01 = np.load('/kaggle/working/dataset/lmks_CAT_01.npy',allow_pickle=True)
+data_02 = np.load('/kaggle/working/dataset/lmks_CAT_02.npy',allow_pickle=True)
+data_03 = np.load('/kaggle/working/dataset/lmks_CAT_03.npy',allow_pickle=True)
+data_04 = np.load('/kaggle/working/dataset/lmks_CAT_04.npy',allow_pickle=True)
+data_05 = np.load('/kaggle/working/dataset/lmks_CAT_05.npy',allow_pickle=True)
+data_06 = np.load('/kaggle/working/dataset/lmks_CAT_06.npy',allow_pickle=True)
 
 x_train = np.concatenate((data_00.item().get('imgs'), data_01.item().get('imgs'), data_02.item().get('imgs'), data_03.item().get('imgs'), data_04.item().get('imgs'), data_05.item().get('imgs')), axis=0)
 y_train = np.concatenate((data_00.item().get(mode), data_01.item().get(mode), data_02.item().get(mode), data_03.item().get(mode), data_04.item().get(mode), data_05.item().get(mode)), axis=0)
