@@ -34,7 +34,14 @@ def resize_img(im):
 for f in file_list:
   if '.cat' not in f:
     continue
+    # Construct the corresponding image filename
+  img_filename, ext = os.path.splitext(f)
+  img_path = os.path.join(base_path, img_filename + '.jpg')
 
+  # Check if the image file exists
+  if not os.path.exists(img_path):
+      print(f"Warning: Image file not found for {f}. Skipping.")
+      continue  
   # read landmarks
   pd_frame = pd.read_csv(os.path.join(base_path, f), sep=' ', header=None)
   landmarks = (pd_frame.to_numpy()[0][1:-1]).reshape((-1, 2))
